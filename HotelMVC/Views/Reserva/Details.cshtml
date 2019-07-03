@@ -1,0 +1,74 @@
+﻿@model HotelMVC.Reserva
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Reserva</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Fecha)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Fecha)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FechaInicio)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FechaInicio)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NumeroNoches)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NumeroNoches)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CantidadPersonas)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CantidadPersonas)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Cliente.Rut)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cliente.Rut)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Habitacion.Descripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Habitacion.Descripcion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Usuario.NombreUsuario)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Usuario.NombreUsuario)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
