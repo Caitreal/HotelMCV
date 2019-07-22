@@ -1,5 +1,4 @@
 ﻿@model HotelMVC.Reserva
-
 @{
     ViewBag.Title = "Create";
 }
@@ -7,10 +6,10 @@
 <h2>Create</h2>
 
 
-@using (Html.BeginForm()) 
+@using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
         <h4>Reserva</h4>
         <hr />
@@ -18,16 +17,16 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Fecha, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Fecha, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.Fecha, new { htmlAttributes = new { @class = "form-control" , @Value = ViewBag.FechaHoy} })
                 @Html.ValidationMessageFor(model => model.Fecha, "", new { @class = "text-danger" })
+                @Html.HiddenFor(model => model.Fecha)
             </div>
         </div>
 
         <div class="form-group">
             @Html.LabelFor(model => model.FechaInicio, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.FechaInicio, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.FechaInicio, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.FechaInicio, new { htmlAttributes = new { @class = "datepicker form-control" } })
             </div>
         </div>
 
@@ -82,7 +81,19 @@
 <div>
     @Html.ActionLink("Back to List", "Index")
 </div>
-
+<link rel="stylesheet" href="/resources/demos/style.css">
+<link href="~/Content/themes/base/jquery-ui.min.css" rel="stylesheet" />
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
+    <script src="~/Scripts/jquery-ui-1.12.1.min.js"></script>
+
+    <script>
+
+        $(function () {
+            $(".datepicker").datepicker({
+                dateFormat : "dd/MM/yyyy"
+            });
+        });
+
+    </script>
 }

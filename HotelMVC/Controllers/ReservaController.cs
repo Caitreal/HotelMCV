@@ -39,6 +39,9 @@ namespace HotelMVC.Controllers
         // GET: Reserva/Create
         public ActionResult Create()
         {
+
+            var fechahoy = DateTime.Now;
+            ViewBag.FechaHoy = fechahoy;
             ViewBag.ClienteId = new SelectList(db.Cliente, "Id", "Rut");
             ViewBag.HabitacionId = new SelectList(db.Habitacion, "Id", "Descripcion");
             ViewBag.UsuarioId = new SelectList(db.Usuario, "Id", "NombreUsuario");
@@ -54,6 +57,7 @@ namespace HotelMVC.Controllers
         {
             if (ModelState.IsValid)
             {
+                ViewBag.FechaHoy = DateTime.Today;
                 db.Reserva.Add(reserva);
                 db.SaveChanges();
                 return RedirectToAction("Index");

@@ -39,6 +39,7 @@ namespace HotelMVC.Controllers
         // GET: PagoReserva/Create
         public ActionResult Create()
         {
+            ViewBag.FechaHoy = DateTime.Now;
             ViewBag.ReservaId = new SelectList(db.Reserva, "Id", "Id");
             return View();
         }
